@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1198d8664f68d34429e29502112b27b8, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  roundCount: 1
+  destroyMonsterInSeconds: 1
+  minSpeed: 3
+  maxSpeed: 5
+  direction: {x: 1, y: 0}
+  timeBetweenRounds: 5
+  screenBoundaryMarker: {fileID: 5597593738798659805, guid: 9d0998876cc2f0e47827363e25d88b6e, type: 3}
+  minimumDistancceToBoundary: 1
+  activeMonsterCount: 11
+  spawnedMonsterCount: 21
