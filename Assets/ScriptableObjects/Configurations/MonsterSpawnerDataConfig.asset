@@ -21,7 +21,7 @@ MonoBehaviour:
   minSpeed: 2
   maxSpeed: 5
   direction: {x: 1, y: 0}
-  screenBoundaryMarker: {fileID: 5597593738798659805, guid: 9d0998876cc2f0e47827363e25d88b6e, type: 3}
-  minimumDistancceToBoundary: 1
-  activeMonsterCount: 0
-  spawnedMonsterCount: 0
+  activeMonsterCount: 8
+  spawnedMonsterCount: 8
+  screenXPositionOffset: 0.067
+  screenYPositionOffset: 0.106

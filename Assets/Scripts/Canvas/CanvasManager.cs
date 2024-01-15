@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CHARK.ScriptableEvents.Events;
-using DefaultNamespace;
 using MonsterRun.Main;
 using ScriptableEvents.Events;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MonsterRun.Canvas
