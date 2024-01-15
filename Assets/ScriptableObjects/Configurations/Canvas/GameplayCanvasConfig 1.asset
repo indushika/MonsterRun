@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b016b306724f1e85d38700b07cbbe9, type: 3}
-  m_Name: CanvasConfigDispatcher
+  m_Script: {fileID: 11500000, guid: f6186c6fdf724b52870cbc57abfdbae0, type: 3}
+  m_Name: GameplayCanvasConfig 1
   m_EditorClassIdentifier: 
-  canvasConfigRegistry:
-  - {fileID: 11400000, guid: 96031dfc4a216354d99c964d161e11e1, type: 2}
-  - {fileID: 11400000, guid: db9cb892db28cd94eaa28a3032eb25c0, type: 2}
+  canvas: {fileID: 1519329792284897925, guid: ec7e7a14480f75f459b1141311450184, type: 3}
+  uiLayer: 1
+  ActiveMonsterCountLabel: 'active monsters : '
+  RoundTimeLabel: 'round timer : '
