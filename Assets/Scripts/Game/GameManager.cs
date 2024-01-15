@@ -71,7 +71,6 @@ namespace MonsterRun.Main
             if (dataConfigurations.CanvasConfigDispatcher.
                 TryGetCanvasConfigInstance(typeof(MainMenuCanvasConfig),out CanvasConfigBase config))
             {
-                Debug.Log("Canvas config: " + config.GetType());
                 var openCanvasEvent = dataConfigurations.CanvasEventDataConfig.OnOpenCanvasEvent;
                 var eventArgs = new OnOpenCanvasEventArgs()
                 {

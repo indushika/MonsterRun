@@ -52,14 +52,11 @@ namespace MonsterRun.Canvas
             {
                 if (configDispatcher.TryGetCanvasConfigInstance(configBase.GetType() , out CanvasConfigBase canvasConfig))
                 {
-                    Debug.Log("Active Canvas Configs : " + activeCanvasConfigs.Count);
-
                     if (closePreviousCanvas)
                     {
                         CloseActiveCanvas();
                     }
                     activeCanvasConfigs.Add(canvasConfig);
-                    Debug.Log("Active Canvas Configs : " + activeCanvasConfigs.Count);
                     var canvas = CreateOrGetCanvas(canvasConfig);
                     canvas.Initialize(canvasConfig);
                     canvas.Open();
@@ -110,7 +107,6 @@ namespace MonsterRun.Canvas
                 {
                     canvas.Close();
                     activeCanvasConfigs.Remove(activeConfig);
-                    Debug.Log("Closing active canvas: " + activeConfig);
                 }
             }
         }
