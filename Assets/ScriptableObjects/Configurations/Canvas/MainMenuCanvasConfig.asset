@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be86a719d81b44989f4cee8120724072, type: 3}
-  m_Name: TypeOneMonsterData
+  m_Script: {fileID: 11500000, guid: f4c627d7e6d2b524e996022babc58076, type: 3}
+  m_Name: MainMenuCanvasConfig
   m_EditorClassIdentifier: 
-  id: 0
-  monsterType: 0
-  monsterBehaviour: {fileID: 6753787254925297820, guid: f66ae8dececd1414d95a6c06356b0080, type: 3}
+  canvas: {fileID: 3987495983870252303, guid: 7774901034ecdd849a514dd099f23749, type: 3}
+  uiLayer: 0
+  StartButtonText: start

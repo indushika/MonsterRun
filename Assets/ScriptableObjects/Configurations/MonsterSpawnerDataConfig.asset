@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7906ec34f2544e4b7d31bd3415bc003, type: 3}
+  m_Name: MonsterSpawnerDataConfig
+  m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 11400000, guid: f677ed5b972f9cb419ddf0c6972204c7, type: 2}
+  - {fileID: 11400000, guid: 415bc079a4710b14e8db6e44762c8266, type: 2}
+  onStartMonsterMoveEvent: {fileID: 11400000, guid: ec8b0650e8b7a1346b289b6e1d953f9c, type: 2}
+  onMonsterStopEvent: {fileID: 11400000, guid: be3033f8406f6ec4e9cc71f46ae0f20d, type: 2}
+  destroyMonsterInSeconds: 1
+  minSpeed: 2
+  maxSpeed: 5
+  direction: {x: 1, y: 0}
+  activeMonsterCount: 8
+  spawnedMonsterCount: 8
+  screenXPositionOffset: 0.067
+  screenYPositionOffset: 0.106

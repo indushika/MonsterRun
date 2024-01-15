@@ -15,4 +15,3 @@ MonoBehaviour:
   id: 1
   monsterType: 1
   monsterBehaviour: {fileID: 7204947247768841111, guid: f3f0c9d5e817d1548bdb8cda6ab33aa9, type: 3}
-  initialPosition: {x: -16, y: -8}
