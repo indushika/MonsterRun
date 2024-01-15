@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6186c6fdf724b52870cbc57abfdbae0, type: 3}
   m_Name: GameplayCanvasConfig 1
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1519329792284897925, guid: ec7e7a14480f75f459b1141311450184, type: 3}
+  canvas: {fileID: 740875121170799307, guid: ec7e7a14480f75f459b1141311450184, type: 3}
   uiLayer: 1
   ActiveMonsterCountLabel: 'active monsters : '
   RoundTimeLabel: 'round timer : '
