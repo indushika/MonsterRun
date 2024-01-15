@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c627d7e6d2b524e996022babc58076, type: 3}
+  m_Name: MainMenuCanvasConfig
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 3987495983870252303, guid: 7774901034ecdd849a514dd099f23749, type: 3}
+  uiLayer: 0
+  StartButtonText: start
