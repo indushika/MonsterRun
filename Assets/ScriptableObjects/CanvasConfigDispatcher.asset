@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasConfigRegistry:
   - {fileID: 11400000, guid: 96031dfc4a216354d99c964d161e11e1, type: 2}
-  - {fileID: 11400000, guid: db9cb892db28cd94eaa28a3032eb25c0, type: 2}
+  - {fileID: 11400000, guid: 7a926d9ba8447ac4e97ba36973cf09be, type: 2}
