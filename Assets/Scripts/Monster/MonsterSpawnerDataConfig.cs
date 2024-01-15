@@ -3,8 +3,9 @@ using CHARK.ScriptableEvents.Events;
 using MonsterRun.Monster;
 using ScriptableEvents.Events;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace DefaultNamespace
+namespace MonsterRun.Monster
 {
     [CreateAssetMenu(fileName = "MonsterSpawnerDataConfig",
         menuName = "Scriptable Objects/Data Configurations/Monster Spawner Data Config")]
@@ -19,11 +20,13 @@ namespace DefaultNamespace
         [SerializeField] private float minSpeed;
         [SerializeField] private float maxSpeed;
         [SerializeField] private Vector2 direction;
-        [SerializeField] private Transform screenBoundaryMarker;
-        [SerializeField] private float minimumDistancceToBoundary;
         [SerializeField] private int activeMonsterCount;
         [SerializeField] private int spawnedMonsterCount;
+        [Range(0, 1f)] [SerializeField] private float screenXPositionOffset; 
+        [Range(0, 1f)] [SerializeField] private float screenYPositionOffset; 
 
+        private Camera mainCamera; 
+        
         public List<MonsterData> Monsters => monsters; 
         public SimpleScriptableEvent OnStartMonsterMoveEvent => onStartMonsterMoveEvent;
         public OnMonsterStopMoveScriptableEvent OnMonsterStopMoveEvent => onMonsterStopEvent; 
@@ -32,11 +35,11 @@ namespace DefaultNamespace
         public float MinSpeed => minSpeed; 
         public float MaxSpeed => maxSpeed;
         public Vector2 Direction => direction;
+        public float ScreenXPositionOffset => screenXPositionOffset;
+        public float ScreenYPositionOffset => screenYPositionOffset;
         
+
         
-        
-        public Transform ScreenBoundaryTransform => screenBoundaryMarker;
-        public float MinimumDistanceToBoundary => minimumDistancceToBoundary; 
         public int ActiveMonsterCount
         {
             get
@@ -59,6 +62,20 @@ namespace DefaultNamespace
                 spawnedMonsterCount = value > 0 ? value : spawnedMonsterCount; 
             }
         }
+
+        public Camera MainCamera
+        {
+            get
+            {
+                if (!mainCamera)
+                {
+                    mainCamera = Camera.main; 
+                }
+
+                return mainCamera; 
+            }
+        }
+            
 
     }
 }

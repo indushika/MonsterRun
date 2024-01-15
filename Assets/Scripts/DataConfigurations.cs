@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using MonsterRun.Canvas;
+using MonsterRun.Monster;
 using MonsterRun.Round;
 using UnityEngine;
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CHARK.ScriptableEvents.Events;
-using DefaultNamespace;
 using MonsterRun.Monster;
 using MonsterRun.Round;
 using MonsterRun.Canvas;

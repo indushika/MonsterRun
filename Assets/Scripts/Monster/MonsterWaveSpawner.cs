@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using CHARK.ScriptableEvents.Events;
-using DefaultNamespace;
 using MonsterRun.Main;
 using MonsterRun.Round;
 using ScriptableEvents.Events;
@@ -60,7 +59,6 @@ namespace MonsterRun.Monster
         private void OnRoundStartEventHandler(OnRoundStartEventArgs args)
         {
             RoundDataConfig roundDataConfig = args.RoundDataConfig; 
-            var boundaryData = GetNewBoundaryData(); 
             if (poolProvider != null)
             {
                 int spawnCount = roundDataConfig.MonsterSpawnCount;
@@ -71,7 +69,10 @@ namespace MonsterRun.Monster
                     var monster = monsterPoolProvider.GetPoolByType(monsterData).Get(); 
                     if (monster)
                     {
-                        monster.Initialize(monsterData,GetNewBehaviourData(), boundaryData,onStartMonsterMoveEvent,onMonsterStopEvent);
+                        var screenPositionWeight =
+                            new Vector2(config.ScreenXPositionOffset, config.ScreenYPositionOffset);
+                        monster.Initialize(monsterData,GetNewBehaviourData(),onStartMonsterMoveEvent,onMonsterStopEvent, 
+                            config.MainCamera, screenPositionWeight);
                     }
                 }
 
@@ -120,18 +121,6 @@ namespace MonsterRun.Monster
             {
                 float speed = Random.Range(config.MinSpeed, config.MaxSpeed);
                 return new BehaviourData(config.Direction, speed, config.DestroyMonsterInSeconds);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-        private BoundaryData GetNewBoundaryData()
-        {
-            try
-            {
-                return new BoundaryData(config.ScreenBoundaryTransform.position, config.MinimumDistanceToBoundary);
             }
             catch (Exception e)
             {

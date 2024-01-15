@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using CHARK.ScriptableEvents.Events;
 using MonsterRun.Main;
@@ -17,26 +18,27 @@ namespace MonsterRun.Monster
         private OnMonsterStopMoveScriptableEvent onMonsterStopEvent; 
         private MonsterData monsterData;
         private BehaviourData behaviourData;
-        private BoundaryData boundaryData;
 
-        private Vector2 boundaryMarker;
-        private float minimumDistanceToBoundary; 
-        
+        private Camera mainCamera;
+        private Vector2 screenPostion;
+        private float xScreenBoundary; 
+        private float yScreenBoundary; 
 
         public MonsterData MonsterData => monsterData; 
-        public void Initialize(MonsterData monsterData, BehaviourData behaviourData, BoundaryData boundaryData,
-            SimpleScriptableEvent onStartMonsterMoveEvent, OnMonsterStopMoveScriptableEvent onMonsterStopEvent )
+        public void Initialize(MonsterData monsterData, BehaviourData behaviourData, 
+            SimpleScriptableEvent onStartMonsterMoveEvent, OnMonsterStopMoveScriptableEvent onMonsterStopEvent,
+            Camera mainCamera, Vector2 screenPositionWeight)
         {
             this.monsterData = monsterData;
             this.behaviourData = behaviourData;
-            this.boundaryData = boundaryData; 
             this.onStartMonsterMoveEvent = onStartMonsterMoveEvent;
-            this.onMonsterStopEvent = onMonsterStopEvent; 
+            this.onMonsterStopEvent = onMonsterStopEvent;
+            this.mainCamera = mainCamera; 
             try
             {
                this.onStartMonsterMoveEvent.AddListener((s) => OnStartRunEventHandler());
-               SetPosition(monsterData.InitialPosition);
-               SetBoundary();
+               SetPositionByScreenPoint(screenPositionWeight);
+               SetBoundary(screenPositionWeight);
             }
             catch (Exception e)
             {
@@ -44,15 +46,28 @@ namespace MonsterRun.Monster
                 throw;
             }
         }
-        
+
+        private void SetBoundary(Vector2 screenPositionWeight)
+        {
+            var pixelWidth = mainCamera.pixelWidth;
+            xScreenBoundary = pixelWidth + pixelWidth * screenPositionWeight.x;
+            var pixelHeight = mainCamera.pixelHeight;
+            yScreenBoundary = pixelHeight + pixelHeight * screenPositionWeight.y; 
+        }
+
         private void Update()
         {
             if (characterMoveFlag)
             {
                 Move(direction, speed, null);
-                if (MathF.Abs(boundaryMarker.x - characterTransform.position.x) < minimumDistanceToBoundary)
+                if (mainCamera)
                 {
-                    EndRunSequence();
+                    var screenPosition = mainCamera.WorldToScreenPoint(characterTransform.position); 
+                    if (screenPosition.x < 0 || screenPosition.x > xScreenBoundary 
+                        || screenPosition.y < 0 || screenPosition.y > yScreenBoundary)
+                    {
+                        EndRunSequence();
+                    }
                 }
             }
         }
@@ -107,11 +122,14 @@ namespace MonsterRun.Monster
             return typeof(This); 
         }
 
-        private void SetBoundary()
+        private void SetPositionByScreenPoint(Vector2 screenPositionWeight)
         {
-            boundaryMarker = boundaryData.BoundaryMarkerPosition;
-            minimumDistanceToBoundary = boundaryData.MinimumDistanceToBoundary; 
+            var screenPosition = new Vector2(mainCamera.pixelWidth*screenPositionWeight.x,mainCamera.pixelHeight*screenPositionWeight.y);
+            var position = mainCamera.ScreenToWorldPoint(screenPosition); 
+            SetPosition(position);
         }
+
+
     }
     
     
