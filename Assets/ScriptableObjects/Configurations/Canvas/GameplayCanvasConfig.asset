@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1519329792284897925, guid: ec7e7a14480f75f459b1141311450184, type: 3}
   uiLayer: 1
-  ActiveMonsterCountLabel: 'active monsters :'
+  ActiveMonsterCountLabel: 'active monsters: '
   RoundTimeLabel: 'round timer : '
